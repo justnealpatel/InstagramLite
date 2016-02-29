@@ -1,0 +1,6 @@
+framework module Pods_InstagramLite {
+  umbrella header "Pods-InstagramLite-umbrella.h"
+
+  export *
+  module * { export * }
+}
