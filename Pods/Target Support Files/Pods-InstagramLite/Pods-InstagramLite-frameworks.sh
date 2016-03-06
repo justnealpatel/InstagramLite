@@ -85,9 +85,15 @@ strip_invalid_archs() {
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "Pods-InstagramLite/Bolts.framework"
+  install_framework "Pods-InstagramLite/ExpandingMenu.framework"
   install_framework "Pods-InstagramLite/Parse.framework"
+  install_framework "Pods-InstagramLite/SCLAlertView.framework"
+  install_framework "Pods-InstagramLite/TKSubmitTransition.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods-InstagramLite/Bolts.framework"
+  install_framework "Pods-InstagramLite/ExpandingMenu.framework"
   install_framework "Pods-InstagramLite/Parse.framework"
+  install_framework "Pods-InstagramLite/SCLAlertView.framework"
+  install_framework "Pods-InstagramLite/TKSubmitTransition.framework"
 fi

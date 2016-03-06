@@ -13,10 +13,11 @@ import Parse
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
-
+    var storyboard = UIStoryboard(name: "Main", bundle: nil)
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+        var initialVC: UIViewController
         // Override point for customization after application launch.
+        Parse.setApplicationId("InstagramLite", clientKey: "msagdjsBNcnzvdja")
         Parse.initializeWithConfiguration(
             ParseClientConfiguration(block: { (configuration:ParseMutableClientConfiguration) -> Void in
                 configuration.applicationId = "InstagramLite"
@@ -24,6 +25,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 configuration.server = "https://thawing-chamber-75526.herokuapp.com/parse"
             })
         )
+        
+        // check if user is logged in.
+        if PFUser.currentUser() != nil {
+            // if there is a logged in user then load the home view controller
+            initialVC = storyboard.instantiateViewControllerWithIdentifier("Home")
+            
+        } else {
+            initialVC = storyboard.instantiateViewControllerWithIdentifier("Login")
+        }
+        
+        self.window?.rootViewController = initialVC
+        self.window?.makeKeyAndVisible()
+        
         return true
     }
 

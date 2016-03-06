@@ -5,5 +5,8 @@ use_frameworks!
 
 target 'InstagramLite' do
 	pod 'Parse'
+	pod 'TKSubmitTransition'
+	pod 'ExpandingMenu'
+	pod 'SCLAlertView'
 end
 
